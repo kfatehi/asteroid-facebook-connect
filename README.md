@@ -12,10 +12,18 @@ You should load this one instead of the one prescribed by asteroid for facebook.
 
 ## For Meteor
 
-`meteor add keyvanfatehi:asteroid-facebook-connect`
+`meteor add keyvan:asteroid-facebook-connect`
 
-## For Ionic
+## For Clients
 
 `bower install --save keyvanfatehi/asteroid-facebook-connect`
 
-Add `<script src="lib/asteroid-facebook-connect/client.js"></script>`
+Add `<script src="bower_components/asteroid-facebook-connect/client.js"></script>` after asteroid scripts.
+
+# Usage
+
+From your code, using your `asteroid` instance, simply call `asteroid.loginWithFacebook()` which is a promise.
+
+Asteroid will emit login / logout events  as normal. Users will be created or updated in your database. Everything works as it should.
+
+If there are any issues, please feel free to fork & PR.
