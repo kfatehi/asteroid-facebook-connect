@@ -1,8 +1,8 @@
 Package.describe({
-  name: 'asteroid-facebook-connect',
+  name: 'keyvanfatehi:asteroid-facebook-connect',
   version: '0.0.1',
   // Brief, one-line summary of the package.
-  summary: '',
+  summary: 'Meteor package providing support for Facebook Connect via Asteroid clients',
   // URL to the Git repository containing the source code for this package.
   git: 'https://github.com/keyvanfatehi/asteroid-facebook-connect',
   // By default, Meteor will default to using README.md for documentation.

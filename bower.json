@@ -1,0 +1,21 @@
+{
+  "name": "asteroid-facebook-connect",
+  "version": "0.0.1",
+  "homepage": "https://github.com/keyvanfatehi/asteroid-facebook-connect",
+  "authors": [
+    "Keyvan Fatehi <keyvanfatehi@gmail.com>"
+  ],
+  "description": "Facebook connect cordova plugin one-click login and registration support for Meteor via Asteroid",
+  "main": "client.js",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "asteroid",
+    "facebook",
+    "facebookconnect",
+    "cordova",
+    "meteor"
+  ],
+  "license": "MIT"
+}
