@@ -1,6 +1,6 @@
 {
   "name": "asteroid-facebook-connect",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "homepage": "https://github.com/keyvanfatehi/asteroid-facebook-connect",
   "authors": [
     "Keyvan Fatehi <keyvanfatehi@gmail.com>"
@@ -17,5 +17,6 @@
     "cordova",
     "meteor"
   ],
+  "ignore":[],
   "license": "MIT"
 }
