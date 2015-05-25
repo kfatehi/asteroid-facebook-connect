@@ -16,7 +16,7 @@ You should load this one instead of the one prescribed by asteroid for facebook.
 
 ## For Clients
 
-`bower install --save keyvanfatehi/asteroid-facebook-connect`
+`bower install --save asteroid-facebook-connect`
 
 Add `<script src="bower_components/asteroid-facebook-connect/client.js"></script>` after asteroid scripts.
 
