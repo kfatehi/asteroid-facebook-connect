@@ -1,8 +1,6 @@
-var HTTP = Meteor.http;
-
 var getIdentity = function (accessToken) {
   try {
-    return HTTP.get("https://graph.facebook.com/v2.2/me", {
+    return Meteor.http.get("https://graph.facebook.com/v2.2/me", {
       params: {access_token: accessToken}}).data;
   } catch (err) {
     throw _.extend(new Error("Failed to fetch identity from Facebook. " + err.message),
@@ -12,7 +10,7 @@ var getIdentity = function (accessToken) {
 
 var getProfilePicture = function (accessToken) {
   try {
-    return HTTP.get("https://graph.facebook.com/v2.0/me/picture/?redirect=false", {
+    return Meteor.http.get("https://graph.facebook.com/v2.0/me/picture/?redirect=false", {
       params: {access_token: accessToken}}).data.data.url;
   } catch (err) {
     throw _.extend(new Error("Failed to fetch identity from Facebook. " + err.message),
