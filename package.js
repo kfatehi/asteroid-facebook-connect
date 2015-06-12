@@ -1,6 +1,6 @@
 Package.describe({
   name: 'keyvan:asteroid-facebook-connect',
-  version: '0.0.4',
+  version: '0.0.5',
   // Brief, one-line summary of the package.
   summary: 'Meteor package providing support for Facebook Connect via Asteroid clients',
   // URL to the Git repository containing the source code for this package.
