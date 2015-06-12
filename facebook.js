@@ -58,8 +58,30 @@ Meteor.methods({
 
     options.profile.avatar = profilePicture;
 
-    // https://github.com/meteor/meteor/blob/devel/packages/accounts-base/accounts_server.js#L1129
-    var ref = Accounts.updateOrCreateUserFromExternalService("facebook", serviceData, options);
+    var ref = null;
+
+    try {
+      // https://github.com/meteor/meteor/blob/devel/packages/accounts-base/accounts_server.js#L1129
+      ref = Accounts.updateOrCreateUserFromExternalService("facebook", serviceData, options);
+    } catch (e) {
+      if (e.reason === "Email already exists.") {
+        // this user already signed up a local account, lets merge the facebook service and finish logging in
+        // this email address might already exist, in which case our Accounts.updateOrCreateUserFromExternalService will fail
+        // so we have to handle this case manually and try our best to merge identities.
+        var existingUser = Meteor.users.findOne({ 'emails.address': identity.email });
+        if ( existingUser ) {
+          if ( identity.verified ) {
+            Meteor.users.update({ _id: existingUser._id }, { $set: { 'services.facebook': serviceData }});
+            ref = { userId: existingUser._id };
+            console.log('Merged facebook identity with existing local user '+existingUser._id);
+          } else {
+            throw Meteor.Error(403, "Refusing to merge unverified facebook identity with existing user")
+          }
+        }
+      } else {
+        throw Meteor.Error(e.error, e.reason);
+      }
+    }
 
     //creating the token and adding to the user
     var stampedToken = Accounts._generateStampedLoginToken();
